@@ -1,0 +1,94 @@
+/* Прописываем для разных частей страницы их свойтсва */
+body{
+    background: #2c2c2c;
+}
+
+/*Свойства навигационной панели*/
+aside{
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+/*Свойства изображения, в том числе его размеры*/
+aside img{
+    width: 80px;
+    float: left;
+
+}
+
+/*Свойства надписи платформы: W_VI */
+aside .logo{
+    font-size: 40px;
+    margin-left: 20px;
+    font-weight: bold;
+    position: relative;
+    top: +10px;
+}
+
+/* Прописываем свойства навигационной панели
+После тега aside идет название класса или тега, которое задается в html шаблоне, в данном случае в main/index.html
+*/
+aside .bar_name{
+    margin-top: 65px;
+    font-size: 40px;
+    margin-left: 17px;
+    position: relative;
+    top: +15px;
+}
+
+/* Отключение нумерации у списка */
+aside ul{
+    list-style: none
+}
+
+/* Задается цвет текста навигац.панели; задержка при наведении на текст*/
+aside ul li{
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition: transform .6s ease;
+}
+
+/* Задается цвет текста при наведении на него, а также его увеличение*/
+aside ul li:hover, aside ul a:hover{
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+
+}
+/*Задаются свойства для блока main в приложении main в файле main/index.html*/
+main .features{
+    float: left;
+    color: #fff;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {font-size: 50px}
+main .features p {max-width: 800px; margin: 20px auto; text-align: center;}
+
+/*Дополняется стиль для текста новости в каждом блоке*/
+.alert-warning{
+    float: left;
+    clear: both;
+    width: 800px;
+    margin: 20px 20%;
+    text-align: left;
+}
+
+.alert-warning p{
+    float: left;
+}
+
+/*Свойства формочки на странице news/create */
+form{
+    margin-left:32%;
+    width: 500px;
+    margin-top: 50px;
+}
