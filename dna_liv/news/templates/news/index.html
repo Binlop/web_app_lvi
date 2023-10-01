@@ -19,6 +19,7 @@
                     <p>{{el.anons}}</p>
                     <p>{{el.text}}</p>
                     <p>{{el.data_publication}}</p>
+                    <p><a href="{% url 'news_detail' el.id %}" class="btn btn-warning">Читать подробнее</a></p>
                 </div>
             {% endfor %}
         {% else %}

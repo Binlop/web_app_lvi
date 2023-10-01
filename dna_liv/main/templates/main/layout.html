@@ -13,27 +13,65 @@
 
 
 </head>
+
 <body>
+    <div class="header">
+        <div class="logo">
+            <img src="{% static 'main/img/logo.png' %}" alt="Логотип платформы">
+            <a>W-VI</a>
+        </div>
+        <!-- Здесь вы можете разместить содержимое вашей шапки -->
+        <div class="center-panel">
+            <a href="{% url 'home'%}">Домик</a>
+            <a>Биобанк</a>
+            <a>Помощь</a>
+            <a>О нас</a>
+        </div>
+        <a class="login">Вход/регистрация</a>
+
+    </div>
+
 <!--Создаем отдельный блок, который связан с основным блоком страницы-->
     <aside>
-<!--Подключаем изображение, название сайта, а также навигационную панель-->
-        <img src="{% static 'main/img/logo.png' %}" alt="Логотип платформы">
-        <span class="logo">W_VI</span>
-        <h3><span class="bar_name">Навигация</span></h3>
-<!--        Прописываем навигационную панель-->
-        <ul>
-            <a href="{% url 'home'%}"><li><i class="fa-regular fa-house"></i>Главная страница</li></a>
-            <a href="{% url 'news_home'%}"><li><i class="fa-regular fa-house"></i>Новости</li></a>
-            <a href="{% url 'about'%}"><li><i class="bi bi-search"></i>О нас</li></a>
-            <a href="{% url 'contacts'%}"><li><i class="fa-solid fa-phone"></i>Контакты</li></a>
-            <a href="{% url 'news_create'%}"><li><button class="btn btn-info">Добавить запись</button></li></a>
-        </ul>
-<!--        Отключаем подчеркивание у элементов списка-->
-        <style>
-            a {
-          text-decoration: none;
-                }
-        </style>
+        <div class="panel">
+            <h3><span class="bar_name">Панель инструментов</span></h3>
+        </div>
+        <!--Подключаем изображение, название сайта, а также навигационную панель-->
+        <div class="instruments">
+            <p><span class="name_instruments">Обработка ДНК</span></p>
+    <!--        Прописываем навигационную панель-->
+            <ul>
+                <a href="{% url 'home'%}"><li><i class="fa-regular fa-house"></i>Свойства ДНК</li></a>
+                <a href="{% url 'news_home'%}"><li><i class="fa-regular fa-house"></i>Выравнивание ДНК</li></a>
+                <a href="{% url 'about'%}"><li><i class="bi bi-search"></i>Деревья</li></a>
+                <a href="{% url 'contacts'%}"><li><i class="fa-solid fa-phone"></i>Поиск мутаций</li></a>
+                {#<a href="{% url 'news_create'%}"><li><button class="btn btn-info">Добавить запись</button></li></a>#}
+            </ul>
+    <!--        Отключаем подчеркивание у элементов списка-->
+            <style>
+                a {
+              text-decoration: none;
+                    }
+            </style>
+        </div>
+
+        <div class="instruments">
+            <p><span class="name_instruments">Нейросети</span></p>
+    <!--        Прописываем навигационную панель-->
+            <ul>
+                <a href="{% url 'home'%}"><li><i class="fa-regular fa-house"></i>Инструмент 1</li></a>
+                <a href="{% url 'news_home'%}"><li><i class="fa-regular fa-house"></i>Инструмент 2</li></a>
+                <a href="{% url 'about'%}"><li><i class="bi bi-search"></i>Инструмент 3</li></a>
+                <a href="{% url 'contacts'%}"><li><i class="fa-solid fa-phone"></i>Инструмент 4</li></a>
+                {#<a href="{% url 'news_create'%}"><li><button class="btn btn-info">Добавить запись</button></li></a>#}
+            </ul>
+    <!--        Отключаем подчеркивание у элементов списка-->
+            <style>
+                a {
+              text-decoration: none;
+                    }
+            </style>
+        </div>
     </aside>
     <main>
 <!--        Создаем отдельный основной блок для контента страницы-->

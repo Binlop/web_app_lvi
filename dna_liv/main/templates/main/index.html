@@ -9,23 +9,12 @@
         <h1>
             {{ title }}
         </h1>
-        {% filter upper %}
         <p>
             Добро пожаловать на платформу W_VI
         </p>
 <!--        Временная текстовая заглушка-->
-        <p>
-            Sed ut perspiciatis, quis nostrum exercitationem ullam corporis suscipit laboriosam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        {% endfilter %}
-        <button class="btn btn-warning">Тестовая кнопка</button>
-<!--        Вывод и фильтрация значений из объектов values, которые обозначены data в файле views.py-->
-        {% for el in values %}
-            {% if el == 'Hello' %}
-                    <p>{{el|lower}}</p> {#Применение фильтра к Hello - весь текст в нижний регистр #}
-<!--        Обязательное закрытие блоков for, if, filter-->
-            {%endif%}
-        {% endfor %}
+        <p>Платформа W-VI разработана с целью обеспечить исследователей и ученых инструментами для биоинформатического анализа молекулярных данных. Она предоставляет пользовательский доступ к множеству биоинформатических инструментов и ресурсам для анализа ДНК, РНК и белков, а также для предсказания их структуры и функций.</p>
+
 
     </div>
 {% endblock %}

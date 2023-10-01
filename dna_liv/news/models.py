@@ -13,6 +13,9 @@ class Articles(models.Model): #Обязательное наследование
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
+
     # Для нормального отображения в панели администратора таблицы Новость в ед и мн.ч
     class Meta:
         verbose_name = 'Новость'
