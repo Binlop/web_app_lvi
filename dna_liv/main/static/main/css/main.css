@@ -15,8 +15,55 @@ aside{
 
 }
 
+/*Свойства изображения, в том числе его размеры*/
+.logo img{
+    max-width: 32px;
+    height: auto;
+    float: left;
+    margin: 3px;
 
+}
 
+/*Свойства надписи к логотипу*/
+.logo a{
+   float: left;
+   margin-top: 2px;
+   font-size: 25px;
+}
+
+/*Свойства шапки платформы*/
+.header{
+   padding: 0 0;
+   height: 40px;
+   background: black;
+   color: #fff;
+   text-decoration: none;
+   text-align: center;
+   position: relative;
+}
+
+/*Свойства расположения центральной панели на шапке*/
+.header div.center-panel{
+    color: #fff;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+/*Свойства элементов на центральной панели шапки*/
+.center-panel a{
+    color: #fff;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+/*Свойства блока регистрации/входа*/
+.header a.login{
+    color: #fff;
+    position: absolute;
+    top: 10px; /* Отступ сверху */
+    right: 20px; /* Отступ справа */
+    font-size: 15px;
+}
 /*Свойства надписи платформы: W_VI */
 /*aside .logo{
     font-size: 40px;
@@ -43,6 +90,7 @@ aside{
     font-size: 30px;
 }
 
+/*Создание боковой границы справа для различных блоков инструментов*/
 .instruments{
     border-right: 5px solid  #FFDB8B;
 }
@@ -89,51 +137,6 @@ main .features{
 
 main .features h1 {font-size: 50px}
 main .features p {max-width: 800px; margin: 20px auto; text-align: center;}
-
-/*Свойства изображения, в том числе его размеры*/
-.logo img{
-    max-width: 32px;
-    height: auto;
-    float: left;
-    margin: 3px;
-
-}
-
-.logo a{
-   float: left;
-   margin-top: 2px;
-   font-size: 25px;
-}
-
-.header{
-   padding: 0 0;
-   height: 40px;
-   background: black;
-   color: #fff;
-   text-decoration: none;
-   text-align: center;
-   position: relative;
-}
-
-.header div.center-panel{
-    color: #fff;
-    display: inline-block;
-    padding-top: 10px;
-}
-
-.center-panel a{
-    color: #fff;
-    margin: 0 10px;
-    font-size: 15px;
-}
-
-.header a.login{
-    color: #fff;
-    position: absolute;
-    top: 10px; /* Отступ сверху */
-    right: 20px; /* Отступ справа */
-    font-size: 15px;
-}
 
 /*Дополняется стиль для текста новости в каждом блоке*/
 .alert-warning{
