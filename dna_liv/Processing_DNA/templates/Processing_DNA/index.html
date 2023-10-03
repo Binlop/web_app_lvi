@@ -3,15 +3,11 @@
 {% block title %}Обработка ДНК{% endblock %}
 
 {% block content %}
-   <div class="features">
+   <div class="sub-instruments">
         <h1>Функции</h1>
-        <form method="post">
-            {% csrf_token %} {#Токен необходим для доставки формы до базы данных#}
-            <!--Создаем разделы формы на сайте, подключаем разделы из словаря в forms.py-->
-           <p>Тест системыыыы</p>
-            <!--Создание кнопки для подтверждения действия сохранить, обязателен тип submit-->
-            <a href="{% url 'dna-length-add'%}" class="btn btn-info">УЗнать длину ДНК</a>
-        </form>
-
+        <ul>
+            <a href="{% url 'dna-length-add'%}">Узнать характеристики ДНК</a>
+            <a href="{% url 'dna_analysis'%}">Узнать ДНК</a>
+        </ul>
     </div>
 {% endblock %}
