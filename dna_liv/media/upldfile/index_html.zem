@@ -1,0 +1,7 @@
+url:http://localhost:8080/index_html
+meta_type:Page Template
+title:
+content_type:text/html
+cookie:__ac="NjE2NDZkNjk2ZTo2MTY0NmQ2OTZlNzM2NTYzNzI2NTc0"; filter_by_department_info=undefined; plone-toolbar={%22expanded%22:true}; bika.graphite.disabled=1
+
+<tal:text tal:replace="structure context/zope_quick_start" />

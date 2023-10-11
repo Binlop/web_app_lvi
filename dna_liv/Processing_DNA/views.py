@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .utils.processing_dna import ProcessingDna
-from .forms import DNAAnalysisForm
+from .forms import DNAAnalysisForm, UploadFileForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from.models import MyFiles
 
 
 def processing_dna(request):
@@ -26,3 +29,27 @@ def dna_analysis(request):
         form = DNAAnalysisForm()
 
     return render(request, "Processing_DNA/dna_analysis.html", {"form": form})
+
+
+
+# Imaginary function to handle an uploaded file.
+# from somewhere import handle_uploaded_file
+
+
+def upload_file(request):
+    all_files = MyFiles.objects.all()
+    print(all_files)
+    
+
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            MyFiles.objects.create(
+                text = str(request.FILES.get('file')),
+                file = request.FILES.get('file')
+            )
+            # handle_uploaded_file(request.FILES["file"])
+            return HttpResponseRedirect(reverse('dna-length'))
+    else:
+        form = UploadFileForm()
+    return render(request, "Processing_DNA/alignment.html", {"form": form, 'all_files': all_files})

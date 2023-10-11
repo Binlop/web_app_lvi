@@ -1,6 +1,6 @@
-
 from django.urls import path
 from . import views
+
 
 # Отслеживаем переход по разным ссылкам в разделе /
 urlpatterns = [

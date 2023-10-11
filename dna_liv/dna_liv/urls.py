@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('dna-length/', include('Processing_DNA.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('login/', include('login.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
