@@ -1,0 +1,16 @@
+/*Задаются свойства для блока main в приложении main в файле main/index.html*/
+.login-page{
+    float: left;
+    color: #fff;
+    margin-top: 100px;
+    text-align: center;
+    width: 400px;
+    height: 500px;
+    margin-left: 350px;
+    /* background: #4a464e; */
+    background: #294141;
+    padding: 20px; /* Задать внутренние отступы в 10px со всех сторон */
+    border-radius: 10px; /* Закругленные углы */
+
+
+}
