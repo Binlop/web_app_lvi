@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'news',
     'Processing_DNA',
     'login',
+    'biobank',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
