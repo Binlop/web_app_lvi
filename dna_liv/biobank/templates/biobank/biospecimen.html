@@ -1,4 +1,4 @@
-<!--Главная страница биобанка-->
+<!--Страница зарегистрированных биологических образцов-->
 
 {% extends 'biobank/biobank_layout.html' %}
 
@@ -6,6 +6,7 @@
 {% block content %}
 <div class="features">
     <h1>{{ title }}</h1>
+    <!-- Блок с названием раздела + кнопка добавить -->
     <div class="title_object">
         <p>
             <span class="larger-text">Биологические образцы</span>
@@ -17,7 +18,9 @@
     </div>
     
     {{ username }}<br>
+    <!-- Вывод таблицы о существующих биологических образцах -->
     <table>
+        <!-- Заголовки столбцов -->
         <thead>
             <tr>
                 <td class="property-cell">Название</td>
@@ -25,6 +28,7 @@
                 <td class="value-cell">Дата</td>
             </tr>
         </thead>
+        <!-- Итерируемые строки биологических образцов, получаемых из БД -->
         <tbody>
             {% for biospecimen in biospecimens %}
                 <tr>

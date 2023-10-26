@@ -1,4 +1,4 @@
-/*Задаются свойства для блока main в приложении main в файле main/index.html*/
+/*Задаются свойства для блока входа/регистрации в приложении login в файле login/login.html и login/register.html*/
 .login-page{
     float: left;
     color: #fff;

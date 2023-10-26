@@ -1,11 +1,11 @@
 from .models import Biospecimen
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea #Импорт необходимых виджетов
 
-# Создаем отдельный класс, который будет именно отображать модель Articles на сайте
+# Создаем отдельный класс, который будет именно отображать модель Biospecimen на сайте
 class BiospecimenForm(ModelForm):
     class Meta:
         model = Biospecimen #Наследуем модель из БД
-        fields = ['title', 'test_field', 'date'] #Задаем необходимые поля на сайте, поля на сайте и БД могут отличатья
+        fields = ['title', 'test_field', 'date'] #Задаем необходимые поля на сайте, имена поля на сайте и в БД могут отличатья
 
         # Создаем словарь виджетов(полей), как они будут отображаться на странице
         widgets = {

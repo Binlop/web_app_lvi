@@ -1,9 +1,10 @@
 /* Прописываем для разных частей страницы их свойтсва */
+
 body{
     background: #2c2c2c;
 }
 
-/*Свойства навигационной панели*/
+/*Свойства навигационной панели биобанка*/
 aside{
     float: left;
     background: #181818;
@@ -15,7 +16,7 @@ aside{
 
 }
 
-/*Свойства изображения, в том числе его размеры*/
+/*Свойства логотипа, в том числе его размеры*/
 .logo img{
     max-width: 30px;
     height: auto;
@@ -32,7 +33,7 @@ aside{
    color: #fff;
 }
 
-/*Свойства шапки платформы*/
+/*Свойства шапки биобанка*/
 .header{
     padding: 0 0;
     height: 80px;
@@ -43,7 +44,7 @@ aside{
     position: relative;
  }
  
- /*Свойства расположения центральной панели на шапке*/
+ /*Свойства расположения центральной панели элементов на шапке*/
  .header div.center-panel{
      color: #fff;
      display: inline-block;
@@ -57,6 +58,7 @@ aside{
      font-size: 15px;
  }
 
+ /* Свойства блока с регистрацией/входом или именем пользователя */
 .header .login {
     width: auto;
     color: #fff;
@@ -66,7 +68,7 @@ aside{
     font-size: 15px;
 }
 
-/*Свойства блока регистрации/входа*/
+/*Свойства текста внутри блока регистрации/входа*/
 .header .login a{
     width: 150px;
     color: #fff;
@@ -75,6 +77,7 @@ aside{
     font-size: 15px;
 }
 
+/* Свойства отображения блока с кнопками профиль и выход */
 .header login user-actions {
     display: none;
     position: absolute;
@@ -85,6 +88,7 @@ aside{
 
 }
 
+/* Свойства кнопок */
 .header login user-actions button {
     display: block;
     width: 100%;
@@ -94,16 +98,7 @@ aside{
     background-color: transparent;
 }
 
-
-/*Свойства надписи платформы: W_VI */
-/*aside .logo{
-    font-size: 40px;
-    margin-left: 20px;
-    font-weight: bold;
-    position: relative;
-    top: +10px;
-}*/
-
+/* Свойства правого блока с файлами */
 .files{
     float: right;
     background: #181818;
@@ -114,12 +109,14 @@ aside{
     position: relative; /* Добавляем позицию относительно родителя */
 }
 
+/* Свойства заголовка к списку файлов */
 .files h5{
     margin-top: 10px;
     margin-left: 10px;
 }
 
-/* Стили для .bar_name */
+/* Стили для .bar_name("Панель инструментов") */
+/* Необходимо убрать в будущем */
 .bar_name {
     color: red;
     font-size: 40px;
@@ -132,16 +129,18 @@ aside{
 
 /* Стили для блока "Панель инструментов" */
 .panel {
-    margin-bottom: 100px; /* Отступ снизу между "Панелью инструментов" и "Первой группой инструментов" */
+    margin-bottom: 100px; /* Отступ снизу между "Панелью инструментов" и "списком разделов биобанка" */
     font-size: 30px;
 }
 
-/*Создание боковой границы справа для различных блоков инструментов*/
+/*Создание боковой границы справа для различных блоков разделов биобанка*/
+/* Надо будет убрать */
 .instruments{
     border-right: 5px solid  #FFDB8B;
 }
 
-/* Стили для заголовка "Навигация" */
+/* Заголовок для группы разделов биобанка */
+/* Надо будет убрать */
 .name_instruments {
     color: green;
     font-size: 20px;
@@ -149,7 +148,7 @@ aside{
     margin-left: 10px;
 }
 
-/* Стили для списка внутри .instruments */
+/* Стили для списка разделов биобанка */
 .instruments ul {
     list-style: none;
     padding: 0; /* Сбрасываем внутренние отступы списка */
@@ -157,7 +156,7 @@ aside{
     margin-left: 10px;
 }
 
-/* Стили для текстовых пунктов списка */
+/* Стили для текстовых пунктов внутри списка */
 .instruments ul li {
     color: #fff;
     display: block;
@@ -181,10 +180,12 @@ main .features{
     width: 62%;
 }
 
+/* Указание стилей для h1 и основного блока текста */
+/* Надо будет убрать в будущем */
 main .features h1 {font-size: 50px}
 main .features p {max-width: 800px; margin: 20px auto; text-align: center;}
 
-/* Стили для таблицы */
+/* Стили для таблицы созданных объектов биобанка определенного типа  */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -207,8 +208,7 @@ table td {
     border: 1px solid #4d4d4d;
 }
 
-/* Добавьте другие стили по необходимости */
-
+/* Стиль названия раздела биобанка*/
 .title_object p {
     display: flex;
     align-items: center;
@@ -218,6 +218,7 @@ table td {
     text-align: left; /* Добавьте это свойство, чтобы переопределить выравнивание текста */
 }
 
+/* Увеличение размеров названия раздела по сравнению с кнопкой "добавить" */
 .larger-text {
     font-size: 24px;
     text-align: left; /* Добавьте это свойство для названия, чтобы гарантировать, что текст будет выровнен влево */

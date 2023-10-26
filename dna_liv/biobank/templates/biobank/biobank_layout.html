@@ -26,39 +26,39 @@
         <a href="{% url 'contacts' %}">Помощь</a>
         <a href="{% url 'about'%}">О нас</a>
     </div>
+    <!-- Выделение блока под регистрацию/вход или имя пользователя, а также проверка на него -->
     <div class="login">
         {%if username%}
-        <!-- Выделение отдельного тега под форму входа/регистрации-->
-            <!-- <a class="login" href="{% url 'login'%}">{{ username }}</a> -->
             <span id="username">{{ username }}</span>
+            <!-- Отображение кнопок "Профиль" и "Выход". НЕРАБОЧИЕ -->
             <div class="user-actions hidden">
                 <button id="profile-button" class="hidden">Профиль</button>
                 <button id="logout-button" class="hidden">Выйти</button>
             </div>
     
-        
+        <!-- Если клиент не авторизирован - ссылка на вход/регистрацию -->
         {% else %}
         <a class="login" href="{% url 'login'%}">Вход/регистрация</a>
         {% endif %}
         </div>
 </div>
 
-<!--Создаем боковой блок, который связан с основным блоком страницы-->
+    <!--Создаем левый боковой блок-->
     <aside>
-<!--        Создание отдельного блока для надписи Панель инструментов-->
+        <!--Создание отдельного блока для надписи Панель инструментов. Необходимо убрать-->
         <div class="panel">
-            <h3><span class="bar_name">Панель инструментов</span></h3>
+            <!-- <h3><span class="bar_name">Панель инструментов</span></h3> -->
         </div>
-        <!--Подключаем блок группы обработки ДНК-->
+        <!--Подключаем блок разделов биообанка-->
         <div class="instruments">
-            <p><span class="name_instruments">Обработка ДНК </span></p>
+            <p><span class="name_instruments">Разделы биобанка </span></p>
             <ul>
                 <a href="{% url 'biospecimen'%}"><li><i class="fa-regular fa-house"></i>Биологические образцы</li></a>
                 <a href="{% url 'news_home'%}"><li><i class="fa-regular fa-house"></i>Хранилище</li></a>
                 <a href="{% url 'about'%}"><li><i class="bi bi-search"></i>Лаборатории</li></a>
                 <a href="{% url 'contacts'%}"><li><i class="fa-solid fa-phone"></i>Типы образцов</li></a>
             </ul>
-    <!--        Отключаем подчеркивание у элементов списка-->
+            <!--Отключаем подчеркивание у элементов списка-->
             <style>
                 a {
               text-decoration: none;
