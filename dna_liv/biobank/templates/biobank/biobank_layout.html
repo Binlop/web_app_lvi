@@ -14,14 +14,34 @@
 
 <body>
 <!--Создание отдельного блока для расположения логотипа платформы"-->
-    <div class="header">
-        <div class="logo">
-            <img src="{% static 'main/img/logo.png' %}" alt="Логотип платформы">
-            <a>W-VI</a>
-        </div>
-<!--        Выделение отдельного тега под форму входа/регистрации-->
-        <a class="login" href="{% url 'login'%}">Вход/регистрация</a>
+<div class="header">
+    <div class="logo">
+        <img src="{% static 'main/img/logo.png' %}" alt="Логотип платформы">
+        <a>W-VI</a>
     </div>
+    <!-- Создание шапки сайта, указываем ссылки на другие страницы -->
+    <div class="center-panel">
+        <a href="{% url 'home'%}">Домик</a>
+        <a href="{% url 'biobank_home'%}">Биобанк</a>
+        <a href="{% url 'contacts' %}">Помощь</a>
+        <a href="{% url 'about'%}">О нас</a>
+    </div>
+    <div class="login">
+        {%if username%}
+        <!-- Выделение отдельного тега под форму входа/регистрации-->
+            <!-- <a class="login" href="{% url 'login'%}">{{ username }}</a> -->
+            <span id="username">{{ username }}</span>
+            <div class="user-actions hidden">
+                <button id="profile-button" class="hidden">Профиль</button>
+                <button id="logout-button" class="hidden">Выйти</button>
+            </div>
+    
+        
+        {% else %}
+        <a class="login" href="{% url 'login'%}">Вход/регистрация</a>
+        {% endif %}
+        </div>
+</div>
 
 <!--Создаем боковой блок, который связан с основным блоком страницы-->
     <aside>

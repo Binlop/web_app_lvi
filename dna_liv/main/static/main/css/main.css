@@ -34,7 +34,7 @@ aside{
 /*Свойства шапки платформы*/
 .header{
    padding: 0 0;
-   height: 40px;
+   height: 80px;
    background: black;
    color: #fff;
    text-decoration: none;
@@ -56,22 +56,67 @@ aside{
     font-size: 15px;
 }
 
-/*Свойства блока регистрации/входа*/
-.header a.login{
+.header .login {
+    width: auto;
     color: #fff;
     position: absolute;
     top: 10px; /* Отступ сверху */
     right: 20px; /* Отступ справа */
     font-size: 15px;
 }
-/*Свойства надписи платформы: W_VI */
-/*aside .logo{
-    font-size: 40px;
-    margin-left: 20px;
-    font-weight: bold;
+
+/*Свойства блока регистрации/входа*/
+.header .login a{
+    width: 150px;
+    color: #fff;
+    top: 10px; /* Отступ сверху */
+    right: 20px; /* Отступ справа */
+    font-size: 15px;
+}
+
+.header login user-actions {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+
+}
+
+.header login user-actions button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+}
+
+.files {
+    float: right;
+    background: #181818;
+    width: 18%;
+    height: 100vh;
+    color: #fff;
+    border-left: 5px solid #4d4d4d;
     position: relative;
-    top: +10px;
-}*/
+}
+
+.files h5 {
+    margin: 20px; /* Пример отступа в 20 пикселей со всех сторон */
+}
+
+.files ul {
+    list-style: none; /* Убираем маркеры списка (точки) */
+    padding: 0; /* Убираем внутренний отступ списка */
+    margin: 20px; /* Убираем внешний отступ списка */
+}
+
+.files ul li {
+    margin-bottom: 5px; /* Добавляем небольшой отступ между элементами списка */
+}
+
 
 /* Стили для .bar_name */
 .bar_name {
@@ -132,7 +177,7 @@ main .features{
     color: #fff;
     margin-top: 100px;
     text-align: center;
-    width: 75%;
+    width: 62%;
 }
 
 main .features h1 {font-size: 50px}

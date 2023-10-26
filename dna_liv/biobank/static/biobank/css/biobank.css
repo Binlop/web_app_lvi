@@ -34,41 +34,42 @@ aside{
 
 /*Свойства шапки платформы*/
 .header{
-   padding: 0 0;
-   height: 80px;
-   background: black;
-   color: #fff;
-   text-decoration: none;
-   text-align: center;
-   position: relative;
-}
-
-/*Свойства расположения центральной панели на шапке*/
-.header div.center-panel{
+    padding: 0 0;
+    height: 80px;
+    background: black;
     color: #fff;
-    display: inline-block;
-    padding-top: 10px;
-}
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+ }
+ 
+ /*Свойства расположения центральной панели на шапке*/
+ .header div.center-panel{
+     color: #fff;
+     display: inline-block;
+     padding-top: 10px;
+ }
+ 
+ /*Свойства элементов на центральной панели шапки*/
+ .center-panel a{
+     color: #fff;
+     margin: 0 10px;
+     font-size: 15px;
+ }
 
-/*Свойства элементов на центральной панели шапки*/
-.center-panel a{
+.header .login {
+    width: auto;
     color: #fff;
-    margin: 0 10px;
+    position: absolute;
+    top: 10px; /* Отступ сверху */
+    right: 20px; /* Отступ справа */
     font-size: 15px;
 }
 
 /*Свойства блока регистрации/входа*/
-/* .header a.login{
+.header .login a{
+    width: 150px;
     color: #fff;
-    position: absolute;
-    top: 10px; /* Отступ сверху */
-    /* right: 20px; /* Отступ справа */
-    /* font-size: 15px;
-} */ 
-
-.header .login{
-    color: #fff;
-    position: absolute;
     top: 10px; /* Отступ сверху */
     right: 20px; /* Отступ справа */
     font-size: 15px;

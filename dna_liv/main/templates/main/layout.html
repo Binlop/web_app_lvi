@@ -28,9 +28,35 @@
             <a href="{% url 'contacts' %}">Помощь</a>
             <a href="{% url 'about'%}">О нас</a>
         </div>
-<!--        Выделение отдельного тега под форму входа/регистрации-->
-        <a class="login" href="{% url 'login'%}">Вход/регистрация</a>
+        <div class="login">
+            {%if username%}
+            <!-- Выделение отдельного тега под форму входа/регистрации-->
+                <!-- <a class="login" href="{% url 'login'%}">{{ username }}</a> -->
+                <span id="username">{{ username }}</span>
+                <div class="user-actions hidden">
+                    <button id="profile-button" class="hidden">Профиль</button>
+                    <button id="logout-button" class="hidden">Выйти</button>
+                </div>
+        
+            
+            {% else %}
+            <a class="login" href="{% url 'login'%}">Вход/регистрация</a>
+            {% endif %}
+            </div>
+    </div>
 
+    <div class="files">
+        <h5>Ваши файлы:</h5>
+        <ul>
+            {% if user_files %}
+                {% for file in user_files %}
+                    <li>
+                        {{ file.name }}
+                        <a href="{{ file.file.url }}" download>{{file.text}}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
     </div>
 
 <!--Создаем боковой блок, который связан с основным блоком страницы-->

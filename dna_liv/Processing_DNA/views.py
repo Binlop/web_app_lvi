@@ -4,7 +4,7 @@ from .forms import DNAAnalysisForm, UploadFileForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from.models import MyFiles
-
+from django.contrib.auth.models import User
 
 def processing_dna(request):
     return render(request, "Processing_DNA/index.html")
@@ -37,19 +37,24 @@ def dna_analysis(request):
 
 
 def upload_file(request):
-    all_files = MyFiles.objects.all()
-    print(all_files)
+    username = request.session.get('username', None)
+    user = User.objects.filter(username=username).first()
     
+    if user:
+        user_files = MyFiles.objects.filter(user=user)
+    else:
+        user_files = None
 
     if request.method == "POST":
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             MyFiles.objects.create(
                 text = str(request.FILES.get('file')),
-                file = request.FILES.get('file')
+                file = request.FILES.get('file'),
+                user = user
             )
             # handle_uploaded_file(request.FILES["file"])
             return HttpResponseRedirect(reverse('dna-length'))
     else:
         form = UploadFileForm()
-    return render(request, "Processing_DNA/alignment.html", {"form": form, 'all_files': all_files})
+    return render(request, "Processing_DNA/alignment.html", {"form": form, 'all_files': user_files})
