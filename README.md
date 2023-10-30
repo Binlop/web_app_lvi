@@ -34,17 +34,12 @@ LVI - многокомпонетный проект с различными пр
 2. Перейдите в директорию проекта:
  
    ```bash
-   cd web_app_lvi/dna_liv
+   cd web_app_lvi/
    
 3. Установите необходимые зависимости:
  
     ```bash   
-    pip install -r requirements.txt
-    
-4. Запустите сервер:
- 
-   ```bash
-    python manage.py runserver
+    docker-compose up - d
     
     
 ## Лицензия
