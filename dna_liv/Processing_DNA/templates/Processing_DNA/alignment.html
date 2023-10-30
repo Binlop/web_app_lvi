@@ -7,7 +7,7 @@
         <h1>Узнать длину ДНК</h1>
 
         {% for file in all_files %}
-            <a href="{{file.file.url}}">{{file.text}}</a><br>
+            <a href="{{file.file.url}}" download>{{file.text}}</a><br>
         {%endfor%}
     
         <form method="post" enctype="multipart/form-data">

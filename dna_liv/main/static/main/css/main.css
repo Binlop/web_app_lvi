@@ -204,20 +204,26 @@ form{
 }
 
 main .sub-instruments{
-    float: left;
+    /* float: left; */
     color: #fff;
     margin-top: 100px;
-    margin-left: 30px;
+    margin-left: 300px;    
     text-align: left;
-    width: 75%;
+    /* width: 62%; */
+    width: 60%; /* Уменьшаем ширину блока */
+
 }
 
 main .sub-instruments h1{
-    margin-left: 30px
+    margin-left: 60px;
+}
+
+main .sub-instruments ul{
+    margin-left: 60px;
 }
 
 main .sub-instruments form, main .sub-instruments button, main .sub-instruments p{
-    margin-left: 30px;
+    margin-left: 60px;
 
 }
 

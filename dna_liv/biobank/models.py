@@ -6,6 +6,8 @@ class Biospecimen(models.Model): #Обязательное наследован�
     title = models.CharField('Название образца', max_length=50, default='')
     test_field = models.CharField('Тестовое поле', max_length=250, default='')
     date = models.DateTimeField('Дата получения')
+    file_name = models.CharField('Название файла', max_length=50)
+    file = models.FileField(upload_to = 'upldfile/')
 
     # Для корректного отображения в админ-панели
     def __str__(self):

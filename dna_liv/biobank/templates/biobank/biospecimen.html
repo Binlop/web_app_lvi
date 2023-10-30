@@ -26,6 +26,7 @@
                 <td class="property-cell">Название</td>
                 <td class="value-cell">Тестовое поле</td>
                 <td class="value-cell">Дата</td>
+                <td class="value-cell">Файл</td>
             </tr>
         </thead>
         <!-- Итерируемые строки биологических образцов, получаемых из БД -->
@@ -35,6 +36,9 @@
                     <td>{{ biospecimen.title }}</td>
                     <td>{{ biospecimen.test_field }}</td>
                     <td>{{ biospecimen.date }}</td>
+                    <td><a href="{{ biospecimen.file.url }}" download>{{ biospecimen.file_name }}</a></td>
+                    <!-- <td><a href="{{biospecimen.file.url}}" download>{{biospecimen.file_name}}</a></td> -->
+                    <!-- <td><a href="{{ biospecimen.file.url }}" download>{{ biospecimen.file_name }}</a></td> -->
                 </tr>
             {% endfor %}
         </tbody>
