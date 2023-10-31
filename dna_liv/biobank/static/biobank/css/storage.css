@@ -1,0 +1,24 @@
+
+
+.storage-cell {
+    background-color: lightyellow;
+    padding: 10px;
+    width: 40px; /* Устанавливаем ширину */
+    height: 40px; /* Устанавливаем высоту */
+    background-color: limegreen;
+
+}
+
+.storage-cell {
+    background-color: lightyellow; /* Светло-желтый фон */
+    padding: 10px; /* Внутренние отступы */
+
+    /* Создаем зеленый круглешок в центре */
+    border-radius: 50%; /* Делаем круглую форму */
+    width: 40px; /* Диаметр круглешка */
+    height: 40px;
+    background-color: limegreen; /* Зеленый цвет */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}

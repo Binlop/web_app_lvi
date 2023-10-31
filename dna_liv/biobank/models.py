@@ -1,5 +1,45 @@
 from django.db import models
 
+class Freezer(models.Model):
+    title = models.CharField(max_length=100)
+    # Другие поля морозилки
+
+    def __str__(self):
+        return self.name
+
+
+class Shelf(models.Model):
+    title = models.CharField(max_length=100)
+    freezer = models.ForeignKey(Freezer, on_delete=models.CASCADE)
+    # Другие поля полки
+
+    def __str__(self):
+        return self.name
+
+
+class Box(models.Model):
+    title = models.CharField(max_length=100)
+    shelf = models.ForeignKey(Shelf, on_delete=models.CASCADE)
+    # Другие поля коробки
+
+    def __str__(self):
+        return self.name
+    
+
+class SampleLocation(models.Model):
+    title = models.CharField(max_length=100)
+    count_samples = models.IntegerField(default=0)
+    count_rows = models.IntegerField(default=0)
+    count_col = models.IntegerField(default=0)
+    state_location = models.CharField(max_length=10, default='free')
+    name_sample = models.CharField(max_length=250, default='')
+    box = models.ForeignKey(Box, on_delete=models.CASCADE)
+    # Другие поля места
+
+    def __str__(self):
+        return self.name
+
+
 class Biospecimen(models.Model): #Обязательное наследование разных типов полей
     """Модель характеризует биологический образец, его поля и необходима для его регистрации в БД. Поля в дальнейшем будут расширяться"""
     # Указываем виджет поля, его название, кол-во символов в поле, значение по умолчанию
@@ -8,6 +48,7 @@ class Biospecimen(models.Model): #Обязательное наследован�
     date = models.DateTimeField('Дата получения')
     file_name = models.CharField('Название файла', max_length=50)
     file = models.FileField(upload_to = 'upldfile/')
+    location = models.ForeignKey(SampleLocation, on_delete=models.CASCADE, default='')
 
     # Для корректного отображения в админ-панели
     def __str__(self):

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Biospecimen
-from .forms import BiospecimenForm
+from .models import Biospecimen, Freezer, Shelf, Box, SampleLocation
+from .forms import BiospecimenForm, FreezerForm, ShelfForm, BoxForm, SampleForm
 """"Представление различных разделов биобанка прописано здесь"""
 
 
@@ -17,7 +17,7 @@ def biospecimen(request):
     
     biospecimens = Biospecimen.objects.filter()[:10]
     print(biospecimens)
-    return render(request, 'biobank/biospecimen.html', {'biospecimens': biospecimens})
+    return render(request, 'biobank/biospecimen/biospecimen.html', {'biospecimens': biospecimens})
 
 
 # Отображение формы для добавления биологического образца
@@ -38,4 +38,108 @@ def create_biospecimen(request):
         'form': form,
         'error': error
     }
-    return render(request, 'biobank/create_object.html', data)
+    return render(request, 'biobank/biospecimen/create_biospecimen.html', data)
+
+
+def storage_view(request):
+    freezers = Freezer.objects.filter()[:10]
+    return render(request, 'biobank/storage/storage.html', {'freezers': freezers})
+
+
+def create_freezer(request):
+    error = ''
+    if request.method == 'POST':
+        form = FreezerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('storage_view')
+        else:
+            error = 'Форма была неверной'
+    form = FreezerForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'biobank/biospecimen/create_biospecimen.html', data)
+
+
+def freezer_view(request, freezer_id):
+    shelfs = Shelf.objects.filter(freezer_id=freezer_id)[:10]
+    return render(request, 'biobank/storage/freezer.html', {'shelfs': shelfs, 'freezer_id': freezer_id})
+
+
+def create_shelf(request, freezer_id):
+    error = ''
+    if request.method == 'POST':
+        form = ShelfForm(request.POST)
+        if form.is_valid():
+            shelf = form.save(commit=False)  # Создаем объект, но не сохраняем его в базе данных пока
+            shelf.freezer_id = freezer_id  # Получаем название файла
+            shelf.save()  # Теперь сохраняем объект
+            return redirect('freezer_view', freezer_id=freezer_id)
+        else:
+            error = 'Форма была неверной'
+    form = ShelfForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'biobank/biospecimen/create_biospecimen.html', data)
+
+
+def shelf_view(request, shelf_id, freezer_id):
+    boxes = Box.objects.filter(shelf_id=shelf_id)[:10]
+    return render(request, 'biobank/storage/shelf.html', {'boxes': boxes, 'shelf_id': shelf_id, 'freezer_id': freezer_id})
+
+
+def create_box(request, freezer_id, shelf_id):
+    error = ''
+    if request.method == 'POST':
+        form = BoxForm(request.POST)
+        if form.is_valid():
+            shelf = form.save(commit=False)  # Создаем объект, но не сохраняем его в базе данных пока
+            shelf.shelf_id = shelf_id  # Получаем название файла
+            shelf.save()  # Теперь сохраняем объект
+            return redirect('shelf_view', freezer_id, shelf_id)
+        else:
+            error = 'Форма была неверной'
+    form = BoxForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'biobank/biospecimen/create_biospecimen.html', data)
+
+
+def box_view(request, freezer_id, shelf_id, box_id):
+    samples = SampleLocation.objects.filter(box_id=box_id)
+    if samples.exists():
+        count_rows = samples.first().count_rows
+        count_col = samples.first().count_col
+    return render(request, 'biobank/storage/box.html', {'samples': samples, 'freezer_id': freezer_id, 'shelf_id': shelf_id, 'box_id': box_id,
+                                                        'num_rows': range(count_rows), 'num_cols': range(count_col),
+                                                        })
+
+
+def create_sample(request, freezer_id, shelf_id, box_id):
+    error = ''
+    if request.method == 'POST':
+        form = SampleForm(request.POST)
+        if form.is_valid():
+            count_samples = form.cleaned_data.get('count_samples')  # Получите количество образцов из формы
+            count_rows = form.cleaned_data.get('count_rows')  # Получите количество образцов из формы
+            count_col = form.cleaned_data.get('count_col')  # Получите количество образцов из формы
+            title = form.cleaned_data.get('title')  # Получите количество образцов из формы
+            for _ in range(count_samples):
+                sample = SampleLocation(title=title, count_samples=count_samples, box_id = box_id, count_rows=count_rows, count_col=count_col)
+                sample.save()
+
+            return redirect('box_view', freezer_id, shelf_id, box_id)
+        else:
+            error = 'Форма была неверной'
+    form = SampleForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'biobank/biospecimen/create_biospecimen.html', data)
