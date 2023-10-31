@@ -19,8 +19,8 @@ LVI - многокомпонетный проект с различными пр
 
 ## Требования к установке
 
-- Python 3.10
-- Django 3.2
+- Docker версии 20.0 или выше
+- Docker Compose версии 1.27 или выше 
 
 ## Установка
 
@@ -34,17 +34,12 @@ LVI - многокомпонетный проект с различными пр
 2. Перейдите в директорию проекта:
  
    ```bash
-   cd web_app_lvi/dna_liv
+   cd web_app_lvi/
    
-3. Установите необходимые зависимости:
+3. Запустите docker-контейнер:
  
     ```bash   
-    pip install -r requirements.txt
-    
-4. Запустите сервер:
- 
-   ```bash
-    python manage.py runserver
+    docker-compose up - d
     
     
 ## Лицензия
