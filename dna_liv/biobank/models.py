@@ -5,7 +5,7 @@ class Freezer(models.Model):
     # Другие поля морозилки
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Shelf(models.Model):
@@ -14,7 +14,7 @@ class Shelf(models.Model):
     # Другие поля полки
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Box(models.Model):
@@ -23,7 +23,7 @@ class Box(models.Model):
     # Другие поля коробки
 
     def __str__(self):
-        return self.name
+        return self.title
     
 
 class SampleLocation(models.Model):
@@ -32,12 +32,12 @@ class SampleLocation(models.Model):
     count_rows = models.IntegerField(default=0)
     count_col = models.IntegerField(default=0)
     state_location = models.CharField(max_length=10, default='free')
-    name_sample = models.CharField(max_length=250, default='')
+    sample_id = models.IntegerField(default=-1)
     box = models.ForeignKey(Box, on_delete=models.CASCADE)
     # Другие поля места
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Biospecimen(models.Model): #Обязательное наследование разных типов полей
@@ -48,6 +48,7 @@ class Biospecimen(models.Model): #Обязательное наследован�
     date = models.DateTimeField('Дата получения')
     file_name = models.CharField('Название файла', max_length=50)
     file = models.FileField(upload_to = 'upldfile/')
+    name_storage_sample = models.CharField('Место хранения образца в хранилище', max_length=100, default='')
     location = models.ForeignKey(SampleLocation, on_delete=models.CASCADE, default='')
 
     # Для корректного отображения в админ-панели

@@ -1,24 +1,92 @@
-
-
-.storage-cell {
-    background-color: lightyellow;
-    padding: 10px;
-    width: 40px; /* Устанавливаем ширину */
-    height: 40px; /* Устанавливаем высоту */
-    background-color: limegreen;
-
+main .samples{
+    float: left;
+    color: #fff;
+    margin-top: 10px;
+    text-align: center;
+    width: 32%;
 }
 
-.storage-cell {
-    background-color: lightyellow; /* Светло-желтый фон */
-    padding: 10px; /* Внутренние отступы */
+.table_samples{
+    margin-left: 60%;
+}
 
-    /* Создаем зеленый круглешок в центре */
-    border-radius: 50%; /* Делаем круглую форму */
-    width: 40px; /* Диаметр круглешка */
+.sample-statistic{
+    position: absolute;
+    width: 170px;
+    margin-top: 20px;
+}
+
+.sample-statistic th, .sample-statistic td {
+    border: 1px solid #000; /* Добавление обводки для всех ячеек */
+    padding: 5px; /* Добавление отступов внутри ячеек */
+}
+/* .storage-cell {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.green-circle {
+    width: 40px;
     height: 40px;
+    background-color: green;
+    border-radius: 50%;
+} */
+
+.storage-cell {
+    width: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.storage-cell::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* Это соотношение сторон (100% ширины относительно высоты), что делает ячейку квадратной */
+}
+
+.green-circle {
+    width: 90%;
+    height: 90%;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.red-circle {
+    width: 90%;
+    height: 90%;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.red-circle a, .green-circle a {
+    display: block; /* Расширьте ссылку на весь круг */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Положение ссылки поверх круга */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Убедитесь, что ссылка находится над кругом */
+}
+
+/* .storage-cell {
+    position: absolute;
+    background-color: lightyellow; /* Светло-желтый фон */
+    /* padding: 10px; /* Внутренние отступы */
+    /* Создаем зеленый круглешок в центре */
+    /* border-radius: 50%; /* Делаем круглую форму */
+    /* width: 150px; /* Диаметр круглешка */
+    /* height: 150px;
     background-color: limegreen; /* Зеленый цвет */
     /* display: flex;
     align-items: center;
-    justify-content: center; */
-}
+    justify-content: center; 
+} */

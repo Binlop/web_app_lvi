@@ -1,0 +1,31 @@
+url:http://localhost:8080/nock/biospecimens
+meta_type:Biospecimens
+title:Биологические образцы
+content_type:text/plain
+cookie:__ac="NjE2NDZkNjk2ZTo2MTY0NmQ2OTZlNzM2NTYzNzI2NTc0"; bika.graphite.disabled=1; _ZopeId="94959723A.QAcAQIu0Q"; sessionid=cib09aa6u4gc9dnitrc37a0h0d9xc6kf; csrftoken=z1sLGnP9bL28b4vIE6PipPKEamYRGKmG; filter_by_department_info=undefined
+
+UID: 75b9266252644b17a7961be7d6db3165
+id: biospecimens
+title: Биологические образцы
+description: 
+constrainTypesMode: 0
+locallyAllowedTypes: Sample
+  Biospecimen
+immediatelyAddableTypes: Sample
+  Biospecimen
+subject: 
+relatedItems: 
+location: 
+language: en
+effectiveDate: None
+expirationDate: None
+creation_date: 2023/10/23 07:12:11.762800 UTC
+modification_date: 2023/10/23 07:12:12.229743 UTC
+creators: admin
+contributors: 
+rights: 
+allowDiscussion: False
+excludeFromNav: False
+nextPreviousEnabled: False
+Content-Type: text/plain
+

@@ -5,7 +5,9 @@ from . import views
 
 urlpatterns = [
     path('', views.biobank_home, name='biobank_home'),
-    path('biospecimen/', views.biospecimen, name='biospecimen'), 
+    path('biospecimen/', views.list_biospecimens, name='list_biospecimens'), 
+    path('biospecimen/sample_<int:biospecimen_id>/', views.single_biospecimen, name='single_biospecimen'), 
+    path('biospecimen/sample_<int:biospecimen_id>/update', views.SampleUpdate.as_view(), name='sample_update'), 
     path('biospecimen/create/', views.create_biospecimen, name='create_biospecimen'),
     path('storage/', views.storage_view, name='storage_view'), #Главная страница хранилища, список морозильников
     path('storage/create', views.create_freezer, name='create_freezer'), #Создание морозильника

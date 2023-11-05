@@ -5,13 +5,12 @@
 {% block title %}Биологические образцы{% endblock %}
 {% block content %}
 <div class="features">
-    <h1>{{ title }}</h1>
     <!-- Блок с названием раздела + кнопка добавить -->
     <div class="title_object">
         <p>
             <span class="larger-text">Биологические образцы</span>
-            <a href="{% url 'create_biospecimen' %}">
-                <button>Добавить</button>
+            <a href="{% url 'sample_update' biospecimen_id=biospecimen.id%}">
+                <button>Изменить</button>
             </a>
             
         </p>
@@ -20,28 +19,29 @@
     {{ username }}<br>
     <!-- Вывод таблицы о существующих биологических образцах -->
     <table>
-        <!-- Заголовки столбцов -->
-        <thead>
-            <tr>
-                <td class="property-cell">Название</td>
-                <td class="value-cell">Тестовое поле</td>
-                <td class="value-cell">Дата</td>
-                <td class="value-cell">Файл</td>
-            </tr>
-        </thead>
         <!-- Итерируемые строки биологических образцов, получаемых из БД -->
         <tbody>
-            {% for biospecimen in biospecimens %}
                 <tr>
-                    <td>{{ biospecimen.title }}</td>
-                    <td>{{ biospecimen.test_field }}</td>
-                    <td>{{ biospecimen.date }}</td>
-                    <td><a href="{{ biospecimen.file.url }}" download>{{ biospecimen.file_name }}</a></td>
-                    <!-- <td><a href="{{biospecimen.file.url}}" download>{{biospecimen.file_name}}</a></td> -->
-                    <!-- <td><a href="{{ biospecimen.file.url }}" download>{{ biospecimen.file_name }}</a></td> -->
+                    <td class="table_property">Название</td>
+                    <td class="table_value">{{ biospecimen.title }}</td>
                 </tr>
-            {% endfor %}
+                <tr>
+                    <td class="table_property">Тестовое поле</td>
+                    <td class="table_value">{{ biospecimen.test_field }}</td>
+                </tr>
+                <tr>
+                    <td class="table_property">Дата</td>
+                    <td class="table_value">{{ biospecimen.date }}</td>
+                </tr>
+                <tr>
+                    <td class="table_property">Место хранения</td>
+                    <td class="table_value">{{ biospecimen.name_storage_sample }}</td>
+                </tr>
+                <tr>
+                    <td class="table_property">Файл</td>
+                    <td class="table_value"><a href="{{ biospecimen.file.url }}" download>{{ biospecimen.file_name }}</a></td>
+                </tr>
         </tbody>
-    </table>    
+    </table>   
 </div>
 {% endblock %}
