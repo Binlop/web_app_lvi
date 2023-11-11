@@ -7,20 +7,19 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        # print(username, password)
         user = authenticate(request, username=username, password=password)
         print(user)
         if user is not None:
             login(request, user=user)
-            print('Успешная авторизация')
-            data = {'username': username}
             request.session['username'] = username  # Добавляем имя пользователя в сессию
             return redirect('home')
     return render(request, 'login/login.html')
 
 
-def user_logout():
-    pass
+def user_logout(request):
+    logout(request)
+    return redirect('home')
+
 
 def register(request):
     if request.method == 'POST':
